@@ -8,6 +8,8 @@ import (
 )
 
 func main() {
+	// This looks like a function call, but it’s actually casting a string literal to a type that implements the error interface.
+	// Changing the values of ErrFoo and ErrBar would be impossible.
 	const (
 		ErrFoo    = my_err.Sentinel("foo error")
 		ErrBar    = my_err.Sentinel("bar error")
@@ -15,9 +17,6 @@ func main() {
 	)
 
 	var ErrFooThree = errors.New("foo error")
-
-	// This looks like a function call, but it’s actually casting a string literal to a type that implements the error interface.
-	// Changing the values of ErrFoo and ErrBar would be impossible.
 
 	fmt.Printf("Type of ErrFoo: %T\n", ErrFoo)
 	fmt.Printf("ErrFoo: %v\n", ErrFoo)
